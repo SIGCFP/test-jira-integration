@@ -1,6 +1,12 @@
-name: Java CI
+name: Java CI - Github - Jira Integration 
 
-on: [push]
+on:
+  push:
+    branches: [  'features/**' ]
+  pull_request:
+    branches: [ main, develop ]
+  release:
+    types: [published, created, edited]  
 
 jobs:
   build:
@@ -20,3 +26,12 @@ jobs:
         with:
           name: Package
           path: staging
+          
+      - name: Jira Integration
+      if: ${{ always() }}
+      uses: rohit-gohri/jira-ci-cd-integration@v0
+      with:
+        state: ${{ job.status }}
+        jira_instance: https://et-soft.atlassian.net/ # Subdomain for Jira Cloud
+        client_id: ${{ secrets.JIRA_CLIENT_ID }}
+        client_secret: ${{ secrets.JIRA_CLIENT_SECRET }}
