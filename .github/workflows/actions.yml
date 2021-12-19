@@ -11,7 +11,7 @@ on:
         - develop
 
 jobs:
-   
+   steps:
     - name: Jira Integration
       if: ${{ always() }}
       uses: rohit-gohri/jira-ci-cd-integration@v0
