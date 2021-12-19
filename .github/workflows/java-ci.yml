@@ -2,7 +2,7 @@ name: Java CI - Github - Jira Integration
 
 on:
   push:
-    branches: [  'features/**' ]
+    branches: [  'feature/**' ]
   pull_request:
     branches: [ main, develop ]
   release:
