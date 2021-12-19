@@ -1,7 +1,7 @@
 
 
 
-name: name: Java CI - Github - Jira Integration
+name: Java CI - Github - Jira Integration
     on:
       push:
         branches:
